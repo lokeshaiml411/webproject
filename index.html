@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Shop</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #ffffff;
+    }
+    /* Navbar */
+    .navbar {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      background-color: #2d4a6e;
+      padding: 12px;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    .navbar a {
+      color: rgb(19, 184, 30);
+      text-decoration: none;
+      margin: 0 15px;
+      font-weight: bold;
+    }
+    .navbar a:hover {
+      color: rgb(172, 123, 32);
+    }
+
+    /* Section Styling */
+    section {
+      padding: 50px 20px;
+    }
+    section h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      font-size: 28px;
+      color: #14a6b6;
+    }
+
+    /* Products Grid */
+    .products {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+    }
+    .product {
+      border: 1px solid #4706c1;
+      border-radius: 10px;
+      padding: 15px;
+      text-align: center;
+      background: #f7faf8;
+      transition: 0.3s;
+    }
+    .product:hover {
+      box-shadow: 0 4px 12px rgba(8, 163, 143, 0.1);
+    }
+    .product img {
+      max-width: 100%;
+      height: 150px;
+      object-fit: contain;
+    }
+    .product h3 {
+      margin: 10px 0;
+    }
+    .product p {
+      color: green;
+      font-weight: bold;
+    }
+    .btn {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 10px 15px;
+      background: orange;
+      color: white;
+      border-radius: 5px;
+      text-decoration: none;
+      cursor: pointer;
+      border: none;
+    }
+    .btn:hover {
+      background: darkorange;
+    }
+
+    /* Checkout Popup */
+    .checkout {
+      display: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.7);
+      justify-content: center;
+      align-items: center;
+    }
+    .checkout-content {
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      width: 300px;
+      text-align: center;
+    }
+    .checkout-content h2 {
+      margin-bottom: 15px;
+    }
+    .checkout-content input {
+      width: 90%;
+      padding: 10px;
+      margin: 8px 0;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    .close {
+      background: red;
+      color: white;
+      padding: 5px 10px;
+      cursor: pointer;
+      border: none;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <div class="navbar">
+    <a href="#electronics">Electronics</a>
+    <a href="#vegetables">Vegetables</a>
+    <a href="#clothing">Clothing</a>
+    <a href="#furniture">Furniture</a>
+    <a href="#books">Books</a>
+    <a href="#appliances">Appliances</a>
+    <a href="#beauty">Beauty</a>
+    <a href="#sports">Sports</a>
+    <a href="#toys">Toys</a>
+    <a href="#grocery">Grocery</a>
+  </div>
+
+  <!-- Electronics -->
+  <section id="electronics">
+    <h2>Electronics</h2>
+    <div class="products">
+      <div class="product"><img src="Smartphone.png"><h3>Smartphone</h3><p>₹14,999</p><button class="btn" onclick="openCheckout('Smartphone',14999)">Buy Now</button></div>
+      <div class="product"><img src="Laptop.png"><h3>Laptop</h3><p>₹65,999</p><button class="btn" onclick="openCheckout('Laptop',65999)">Buy Now</button></div>
+      <div class="product"><img src="Smart Watch.png"><h3>Smart Watch</h3><p>₹3,999</p><button class="btn" onclick="openCheckout('Smart Watch',3999)">Buy Now</button></div>
+      <div class="product"><img src="Earphones.png"><h3>Earphones</h3><p>₹799</p><button class="btn" onclick="openCheckout('Earphones',799)">Buy Now</button></div>
+    </div>
+  </section>
+
+  <!-- Vegetables -->
+  <section id="vegetables">
+    <h2>Vegetables</h2>
+    <div class="products">
+      <div class="product"><img src="Tomatoes.png"><h3>Tomatoes (1kg)</h3><p>₹40</p><button class="btn" onclick="openCheckout('Tomatoes',40)">Buy Now</button></div>
+      <div class="product"><img src="Potatoes.png"><h3>Potatoes (1kg)</h3><p>₹30</p><button class="btn" onclick="openCheckout('Potatoes',30)">Buy Now</button></div>
+      <div class="product"><img src="carrot.png"><h3>carrot (1kg)</h3><p>₹50</p><button class="btn" onclick="openCheckout('carrot',50)">Buy Now</button></div>
+      <div class="product"><img src="onion.png"><h3>onion (1kg)</h3><p>₹20</p><button class="btn" onclick="openCheckout('onion',20)">Buy Now</button></div>
+    </div>
+  </section>
+
+  <!-- Clothing -->
+  <section id="clothing">
+    <h2>Clothing</h2>
+    <div class="products">
+      <div class="product"><img src="Men's Shirt.png"><h3>Men's Shirt</h3><p>₹999</p><button class="btn" onclick="openCheckout('Men Shirt',999)">Buy Now</button></div>
+      <div class="product"><img src="Women's Dress.png"><h3>Women's Dress</h3><p>₹1,299</p><button class="btn" onclick="openCheckout('Women Dress',1299)">Buy Now</button></div>
+      <div class="product"><img src="womens.png"><h3>Women's shirt</h3><p>₹1,399</p><button class="btn" onclick="openCheckout('Womens shirt',1399)">Buy Now</button></div>
+      <div class="product"><img src="shoes.png"><h3>men's shoes</h3><p>₹2,299</p><button class="btn" onclick="openCheckout('Women Dress',2299)">Buy Now</button></div>
+    </div>
+  </section>
+
+  <!-- Furniture -->
+  <section id="furniture">
+    <h2>Furniture</h2>
+    <div class="products">
+      <div class="product"><img src="Wooden Chair.png"><h3>Wooden Chair</h3><p>₹2,500</p><button class="btn" onclick="openCheckout('Wooden Chair',2500)">Buy Now</button></div>
+      <div class="product"><img src="sofa.png"><h3>Sofa</h3><p>₹8,999</p><button class="btn" onclick="openCheckout('Sofa',8,999)">Buy Now</button></div>
+      <div class="product"><img src="bed.png"><h3>Bed</h3><p>₹10,999</p><button class="btn" onclick="openCheckout('Bed',10,999)">Buy Now</button></div>
+      <div class="product"><img src="coffee.png"><h3>Coffee Table</h3><p>₹9,999</p><button class="btn" onclick="openCheckout('Coffee Table',9,999)">Buy Now</button></div>
+    </div>
+  </section>
+
+  <!-- Books -->
+  <section id="books">
+    <h2>Books</h2>
+    <div class="products">
+      <div class="product"><img src="Science Book.png"><h3>Science Book</h3><p>₹450</p><button class="btn" onclick="openCheckout('Science Book',450)">Buy Now</button></div>
+      <div class="product"><img src="Novel.png"><h3>Novel</h3><p>₹350</p><button class="btn" onclick="openCheckout('Novel',350)">Buy Now</button></div>
+      <div class="product"><img src="Comic Book.png"><h3>Comic Book</h3><p>₹150</p><button class="btn" onclick="openCheckout('Comic Book',150)">Buy Now</button></div>
+      <div class="product"><img src="story.png"><h3>story books for kids</h3><p>₹199</p><button class="btn" onclick="openCheckout('story books for kids',199)">Buy Now</button></div>
+    </div>
+  </section>
+
+  <!-- Appliances -->
+  <section id="appliances">
+    <h2>Home Appliances</h2>
+    <div class="products">
+      <div class="product"><img src="Washing Machine.png"><h3>Washing Machine</h3><p>₹25,000</p><button class="btn" onclick="openCheckout('Washing Machine',25000)">Buy Now</button></div>
+      <div class="product"><img src="Refrigerator.png"><h3>Refrigerator</h3><p>₹35,000</p><button class="btn" onclick="openCheckout('Refrigerator',35000)">Buy Now</button></div>
+      <div class="product"><img src="fan.png"><h3>Fan</h3><p>₹20,000</p><button class="btn" onclick="openCheckout('Fan',20000)">Buy Now</button></div>
+      <div class="product"><img src="kettle.png"><h3>Kettle</h3><p>₹4,000</p><button class="btn" onclick="openCheckout('Kettle',4000)">Buy Now</button></div>
+    </div>
+  </section>
+
+  <!-- Beauty -->
+  <section id="beauty">
+    <h2>Beauty & Personal Care</h2>
+    <div class="products">
+      <div class="product"><img src="Face Cream.png"><h3>Face Cream</h3><p>₹499</p><button class="btn" onclick="openCheckout('Face Cream',499)">Buy Now</button></div>
+      <div class="product"><img src="Shampoo.png"><h3>Shampoo</h3><p>₹299</p><button class="btn" onclick="openCheckout('Shampoo',299)">Buy Now</button></div>
+      <div class="product"><img src="dove.png"><h3>Dove Soap</h3><p>₹499</p><button class="btn" onclick="openCheckout('Dove Soap',499)">Buy Now</button></div>
+      <div class="product"><img src="sun.png"><h3>Sun Screen</h3><p>₹899</p><button class="btn" onclick="openCheckout('Sun Screen',899)">Buy Now</button></div>
+
+    </div>
+  </section>
+
+  <!-- Sports -->
+  <section id="sports">
+    <h2>Sports</h2>
+    <div class="products">
+      <div class="product"><img src="Football.png"><h3>Football</h3><p>₹800</p><button class="btn" onclick="openCheckout('Football',800)">Buy Now</button></div>
+      <div class="product"><img src="Cricket Bat.png"><h3>Cricket Bat</h3><p>₹1,500</p><button class="btn" onclick="openCheckout('Cricket Bat',1500)">Buy Now</button></div>
+      <div class="product"><img src="volley.png"><h3>Volley Ball</h3><p>₹2,500</p><button class="btn" onclick="openCheckout('Cricket Bat',1500)">Buy Now</button></div>
+      <div class="product"><img src="baskket.png"><h3>Basket Ball</h3><p>₹2,999</p><button class="btn" onclick="openCheckout('Cricket Bat',1500)">Buy Now</button></div>
+    </div>
+  </section>
+
+  <!-- Toys -->
+  <section id="toys">
+    <h2>Toys</h2>
+    <div class="products">
+      <div class="product"><img src="Teddy Bear.png"><h3>Teddy Bear</h3><p>₹400</p><button class="btn" onclick="openCheckout('Teddy Bear',400)">Buy Now</button></div>
+      <div class="product"><img src="Remote Car.png"><h3>Remote Car</h3><p>₹1,200</p><button class="btn" onclick="openCheckout('Remote Car',1200)">Buy Now</button></div>
+      <div class="product"><img src="jeep.png"><h3>Jeep</h3><p>₹899</p><button class="btn" onclick="openCheckout('Remote Car',1200)">Buy Now</button></div>
+      <div class="product"><img src="phone.png"><h3>Phone</h3><p>₹599</p><button class="btn" onclick="openCheckout('Remote Car',1200)">Buy Now</button></div>
+    </div>
+  </section>
+
+  <!-- Grocery -->
+  <section id="grocery">
+    <h2>Grocery</h2>
+    <div class="products">
+      <div class="product"><img src="Rice.png"><h3>Rice (5kg)</h3><p>₹350</p><button class="btn" onclick="openCheckout('Rice 5kg',350)">Buy Now</button></div>
+      <div class="product"><img src="Cooking Oil.png"><h3>Cooking Oil (1L)</h3><p>₹180</p><button class="btn" onclick="openCheckout('Cooking Oil',180)">Buy Now</button></div>
+      <div class="product"><img src="surf exe.png"><h3>Surf Exel (1L)</h3><p>₹199</p><button class="btn" onclick="openCheckout('Surf Exel',199)">Buy Now</button></div>
+      <div class="product"><img src="rin.png"><h3>Rine Soap</h3><p>₹69</p><button class="btn" onclick="openCheckout('Rin Soap',69)">Buy Now</button></div>
+    </div>
+  </section>
+
+  <!-- Checkout Popup -->
+  <div class="checkout" id="checkoutBox">
+    <div class="checkout-content">
+      <h2>Checkout</h2>
+      <p id="productName"></p>
+      <p id="productPrice"></p>
+      <input type="text" placeholder="Your Name">
+      <input type="text" placeholder="Address">
+      <input type="text" placeholder="Card Number">
+      <br>
+      <button class="btn" onclick="confirmOrder()">Confirm Order</button>
+      <button class="close" onclick="closeCheckout()">Close</button>
+    </div>
+  </div>
+
+  <script>
+    function openCheckout(name, price) {
+      document.getElementById("checkoutBox").style.display = "flex";
+      document.getElementById("productName").innerText = "Product: " + name;
+      document.getElementById("productPrice").innerText = "Price: ₹" + price;
+    }
+    function closeCheckout() {
+      document.getElementById("checkoutBox").style.display = "none";
+    }
+    function confirmOrder() {
+      alert("✅ Thank you! Your order has been placed.");
+      closeCheckout();
+    }
+  </script>
+
+</body>
+</html>
